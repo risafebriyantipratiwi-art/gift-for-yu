@@ -4,132 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hadiah Spesial Buat Kamu! 🎁</title>
-    <!-- Menggunakan Canvas Confetti untuk efek selebrasi -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 450px;
-            width: 100%;
-            transition: all 0.5s ease;
-        }
-
-        h1 {
-            color: #ff6b81;
-            margin-bottom: 15px;
-            font-size: 24px;
-        }
-
-        p {
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        input[type="number"] {
-            width: 80px;
-            padding: 10px;
-            font-size: 18px;
-            border: 2px solid #a6c1ee;
-            border-radius: 10px;
-            text-align: center;
-            outline: none;
-        }
-
-        button {
-            background: #ff6b81;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-left: 10px;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background: #fb475e;
-        }
-
-        #hint {
-            margin-top: 15px;
-            font-weight: bold;
-            color: #777;
-        }
-
-        /* Bagian Surat Ucapan (Sembunyi di awal) */
-        .hidden {
-            display: none;
-        }
-
-        .letter {
-            animation: fadeIn 1s ease forwards;
-        }
-
-        .letter-text {
-            background: #fff5f6;
-            padding: 20px;
-            border-left: 5px solid #ff6b81;
-            border-radius: 5px;
-            text-align: left;
-            white-space: pre-line;
-            margin-top: 15px;
-            color: #333;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .card { background: white; padding: 30px; border-radius: 20px; text-align: center; max-width: 450px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h1 { color: #ff6b81; margin-bottom: 15px; font-size: 24px; }
+        p { color: #555; margin-bottom: 20px; }
+        input { width: 80px; padding: 10px; font-size: 18px; border: 2px solid #a6c1ee; border-radius: 10px; text-align: center; }
+        button { background: #ff6b81; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 10px; cursor: pointer; margin-left: 10px; }
+        #hint { margin-top: 15px; font-weight: bold; color: #ff4757; }
+        .hidden { display: none !important; }
+        .letter-text { background: #fff5f6; padding: 20px; border-left: 5px solid #ff6b81; border-radius: 5px; text-align: left; white-space: pre-line; margin-top: 15px; color: #333; }
     </style>
 </head>
 <body>
 
-    <div class="card" id="game-card">
-        <!-- TAMPILAN UTAMA GAME -->
+    <div class="card">
         <div id="game-section">
             <h1>Main Game Dulu Yuk! 🎮</h1>
-            <p>Aku udah nyiapin sesuatu buat kamu. Tapi tebak dulu <strong>Angka Keberuntungan (1 sampai 10)</strong> di bawah ini buat ngebuka hadiahnya!</p>
-            
-            <input type="number" id="guess-input" min="1" max="10" placeholder="?">
+            <p>Tebak <strong>Angka Keberuntungan (1 sampai 10)</strong> buat ngebuka hadiahnya!</p>
+            <input type="number" id="guess-input" placeholder="?">
             <button onclick="checkGuess()">Tebak</button>
-            
             <p id="hint"></p>
         </div>
 
-        <!-- TAMPILAN SURAT UCAPAN (MUNCUL PAS MENANG) -->
-        <div id="reward-section" class="hidden letter">
+        <div id="reward-section" class="hidden">
             <h1>Selamat Kamu Menang! 🎉</h1>
-            <p>Hadiahnya bukan mainan, tapi ini tulus dari hati...</p>
-            
-            <!-- Silakan ganti isi ucapan di bawah ini sesuai keinginanmu -->
             <div class="letter-text">
                 Hai bestieeeeeeeee ✨
 
-                Selamat ya udah berhasil nebak angkanya! Lewat web inii, aku cuma mau bilang makasih banyak udah selalu ada dan jadi temen yang luar biasa buat aku selama ini. 
+                Selamat ya udah berhasil nebak angkanya! lewat web ini aku cuma mau bilang makasih banyak udah jadi temen baikk aku selama inii
 
-                Semoga kita bisa bareng bareng terus yaa,tolong tetep jadi orang baik jugaa.. terimakasi banyakk, semoga kebahagiaan selalu ada disekitar kamu.
+                Semoga kita bisa bareng bareng terus yaa,dan semoga hal baik selalu ada disekitar kamuu.
                 Dari sahabatmu,
                 [risaa paling baik sedunia] ❤️
             </div>
@@ -137,42 +43,29 @@
     </div>
 
     <script>
-        // Menentukan angka rahasia secara acak antara 1 - 10
-        const secretBonusNumber = Math.floor(Math.random() * 10) + 1;
-        let attempts = 5;
+        // Angka rahasianya dikunci di angka 7 biar gampang dites
+        const secretNumber = 7;
 
         function checkGuess() {
             const userInput = document.getElementById('guess-input').value;
             const hintElement = document.getElementById('hint');
 
             if (!userInput) {
-                hintElement.style.color = "#ff4757";
                 hintElement.innerText = "Isi dulu angkanya dong~";
                 return;
             }
 
-            attempts++;
             const guess = parseInt(userInput);
 
-            if (guess === secretBonusNumber) {
-                // Efek Konfeti Petasan
-                confetti({
-                    particleCount: 150,
-                    spread: 80,
-                    origin: { y: 0.6 }
-                });
-                
-                // Sembunyikan game, munculkan ucapan
+            if (guess === secretNumber) {
                 document.getElementById('game-section').classList.add('hidden');
                 document.getElementById('reward-section').classList.remove('hidden');
-            } else if (guess < secretBonusNumber) {
-                hintElement.style.color = "#777";
-                hintElement.innerText = "et salah bestie kecil teing! Coba angka yang lebih besar 📈";
+            } else if (guess < secretNumber) {
+                hintElement.innerText = "Kekecilan! Coba angka yang lebih besar 📈";
             } else {
-                hintElement.style.color = "#777";
-                hintElement.innerText = "eh aduh ini kebesaran! Coba angka yang lebih kecil 📉";
+                hintElement.innerText = "Kekebesaran! Coba angka yang lebih kecil 📉";
             }
         }
-    </style>
+    </script>
 </body>
-</html>
+</html>                        
